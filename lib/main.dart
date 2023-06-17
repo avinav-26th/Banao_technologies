@@ -1,7 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:banao_technologies_assignment_app/widgets/heading_row.dart';
 import 'package:banao_technologies_assignment_app/widgets/main_card_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'widgets/options_card_widget.dart';
@@ -30,13 +31,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  }
-
-  double iconSize = 35, fontSize = 18, barWidth = 80, otherIconSize = 30;
+  double iconSize = 35, fontSize = 16, barWidth = 80, otherIconSize = 30;
   int selectedIndex = 0;
   Color barColor = Colors.transparent;
 
@@ -88,6 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ? const Color(0xff598BED)
                       : Colors.grey.shade700,
                 ),
+                const SizedBox(
+                  height: 5,
+                ),
                 Text(
                   'Home',
                   style: TextStyle(
@@ -128,6 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: selectedIndex == 1
                       ? const Color(0xff598BED)
                       : Colors.grey.shade700,
+                ),
+                const SizedBox(
+                  height: 5,
                 ),
                 Text(
                   'Learn',
@@ -170,6 +171,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ? const Color(0xff598BED)
                       : Colors.grey.shade700,
                 ),
+                const SizedBox(
+                  height: 5,
+                ),
                 Text(
                   'Hub',
                   style: TextStyle(
@@ -210,6 +214,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: selectedIndex == 3
                       ? const Color(0xff598BED)
                       : Colors.grey.shade700,
+                ),
+                const SizedBox(
+                  height: 5,
                 ),
                 Text(
                   'Chat',
@@ -258,6 +265,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 5,
+                ),
                 Text(
                   'Profile',
                   style: TextStyle(
@@ -277,310 +287,344 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            //topmost dummy row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Icon(
-                  Icons.square,
-                  color: Color(0xff868E96),
-                ),
-                const Icon(
-                  Icons.circle,
-                  color: Color(0xff868E96),
-                ),
-                Image.asset('assets/icons/png/triangle.png'),
-              ],
-            ),
+    return SafeArea(
+      child: Scaffold(
+        body: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              //topmost dummy row
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.end,
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       const Icon(
+              //         Icons.square,
+              //         color: Color(0xff868E96),
+              //       ),
+              //       const Icon(
+              //         Icons.circle,
+              //         color: Color(0xff868E96),
+              //       ),
+              //       Image.asset('assets/icons/png/triangle.png', height: 18,),
+              //     ],
+              //   ),
+              // ),
 
-            //upper container
-            Container(
-              height: MediaQuery.of(context).size.height * 0.43,
-              width: double.infinity,
-              color: const Color(0xffEEF3FD),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  //appbar row
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        //menu icon
-                        SvgPicture.asset(
-                          'assets/icons/svg/menu.svg',
-                          height: iconSize,
-                          width: iconSize,
-                        ),
+              //appbar row
+              Container(
+                color: const Color(0xffEEF3FD),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      //menu icon
+                      SvgPicture.asset(
+                        'assets/icons/svg/menu.svg',
+                        height: iconSize,
+                        width: iconSize,
+                      ),
 
-                        //binder row
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            //inbox icon
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: SvgPicture.asset(
-                                'assets/icons/svg/inbox.svg',
-                                height: iconSize,
-                                width: iconSize,
-                              ),
-                            ),
-
-                            //bell icon
-                            SvgPicture.asset(
-                              'assets/icons/svg/bell.svg',
+                      //binder row
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          //inbox icon
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: SvgPicture.asset(
+                              'assets/icons/svg/inbox.svg',
                               height: iconSize,
                               width: iconSize,
                             ),
-                          ],
+                          ),
+
+                          //bell icon
+                          SvgPicture.asset(
+                            'assets/icons/svg/bell.svg',
+                            height: iconSize,
+                            width: iconSize,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              //scrollable view
+              Expanded(
+                child: SizedBox(
+                  child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    child: Column(
+                      children: [
+                        //upper container
+                        Container(
+                          width: double.infinity,
+                          color: const Color(0xffEEF3FD),
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                //hello priya text
+                                const Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 15, top: 13, bottom: 8),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'Hello, Priya!',
+                                      style: TextStyle(
+                                        fontSize: 40,
+                                        fontFamily: 'Lora',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                //desc text
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 15, bottom: 45),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'What do you wanna learn today?',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w400,
+                                        fontFamily: 'Inter',
+                                        color: Colors.grey.shade500,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                //options row1
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    OptionsCardWidget(
+                                        context,
+                                        'assets/icons/png/bookmark.png',
+                                        'Programs'),
+                                    OptionsCardWidget(
+                                        context,
+                                        'assets/icons/png/help.png',
+                                        'Get Help'),
+                                  ],
+                                ),
+
+                                //options row2
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    OptionsCardWidget(
+                                        context,
+                                        'assets/icons/png/open_book.png',
+                                        'Learn'),
+                                    OptionsCardWidget(
+                                        context,
+                                        'assets/icons/png/trello.png',
+                                        'DD Tracker'),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        //programs for you - section
+                        HeadingRow(context, 'Programs for you'),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          physics: const BouncingScrollPhysics(),
+                          child: Row(
+                            children: [
+                              MainCardWidget(
+                                context,
+                                const Color(0xffDDE3C2),
+                                'assets/images/lifestyle.png',
+                                'LIFESTYLE',
+                                'A complete guide for your new born baby',
+                                '16 lessons',
+                                const SizedBox(
+                                  height: 1,
+                                  width: 1,
+                                ),
+                                false,
+                                true,
+                              ),
+                              MainCardWidget(
+                                context,
+                                const Color(0xffFFF0D3),
+                                'assets/images/working_parent.png',
+                                'WORKING PARENT',
+                                'Understanding of human behaviour',
+                                '12 lessons',
+                                const SizedBox(
+                                  height: 1,
+                                  width: 1,
+                                ),
+                                false,
+                                true,
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        const SizedBox(
+                          height: 20,
+                        ),
+
+                        //events and experience section - section
+                        HeadingRow(context, 'Events and experiences'),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          physics: const BouncingScrollPhysics(),
+                          child: Row(
+                            children: [
+                              MainCardWidget(
+                                context,
+                                const Color(0xffDDE3C2),
+                                'assets/images/babycare.png',
+                                'BABYCARE',
+                                'Understanding of human behaviour',
+                                '13 Feb, Sunday',
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 8, horizontal: 15),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(
+                                          color: const Color(0xff598BED),
+                                          width: 2),
+                                    ),
+                                    child: const Text(
+                                      'Book',
+                                      style: TextStyle(
+                                        color: Color(0xff598BED),
+                                        fontSize: 18,
+                                        fontFamily: 'Inter',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                true,
+                                true,
+                              ),
+                              MainCardWidget(
+                                context,
+                                const Color(0xffDDE3C2),
+                                'assets/images/babycare.png',
+                                'BABYCARE',
+                                'Understanding of human behaviour',
+                                '13 Feb, Sunday',
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 8, horizontal: 15),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(
+                                          color: const Color(0xff598BED),
+                                          width: 2),
+                                    ),
+                                    child: const Text(
+                                      'Book',
+                                      style: TextStyle(
+                                        color: Color(0xff598BED),
+                                        fontSize: 18,
+                                        fontFamily: 'Inter',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                true,
+                                true,
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        const SizedBox(
+                          height: 20,
+                        ),
+
+                        //lessons for you - section
+                        HeadingRow(context, 'Lessons for you'),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          physics: const BouncingScrollPhysics(),
+                          child: Row(
+                            children: [
+                              MainCardWidget(
+                                context,
+                                const Color(0xffDDE3C2),
+                                'assets/images/babycare.png',
+                                'BABYCARE',
+                                'Understanding of human behaviour',
+                                '3 min',
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 12, bottom: 8),
+                                  child: SvgPicture.asset(
+                                    'assets/icons/svg/lock.svg',
+                                    height: otherIconSize,
+                                    width: otherIconSize,
+                                  ),
+                                ),
+                                true,
+                                true,
+                              ),
+                              MainCardWidget(
+                                context,
+                                const Color(0xffDDE3C2),
+                                'assets/images/babycare.png',
+                                'BABYCARE',
+                                'Understanding of human behaviour',
+                                '1 min',
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 12, bottom: 8),
+                                  child: SvgPicture.asset(
+                                    'assets/icons/svg/lock.svg',
+                                    height: otherIconSize,
+                                    width: otherIconSize,
+                                  ),
+                                ),
+                                true,
+                                true,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
-
-                  //hello priya text
-                  const Padding(
-                    padding: EdgeInsets.only(left: 15, top: 13, bottom: 8),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Hello, Priya!',
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontFamily: 'Lora',
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  //desc text
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15, bottom: 45),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'What do you wanna learn today?',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Inter',
-                          color: Colors.grey.shade500,
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  //options row1
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      OptionsCardWidget(
-                          context, 'assets/icons/png/bookmark.png', 'Programs'),
-                      OptionsCardWidget(
-                          context, 'assets/icons/png/help.png', 'Get Help'),
-                    ],
-                  ),
-
-                  //options row2
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      OptionsCardWidget(
-                          context, 'assets/icons/png/open_book.png', 'Learn'),
-                      OptionsCardWidget(
-                          context, 'assets/icons/png/trello.png', 'DD Tracker'),
-                    ],
-                  )
-                ],
-              ),
-            ),
-
-            //scrollable view
-            Expanded(
-              child: SizedBox(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Column(
-                    children: [
-                      HeadingRow('Programs for you'),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        physics: const BouncingScrollPhysics(),
-                        child: Row(
-                          children: [
-                            MainCardWidget(
-                              context,
-                              const Color(0xffDDE3C2),
-                              'assets/images/lifestyle.png',
-                              'LIFESTYLE',
-                              'A complete guide for your new born baby',
-                              '16 lessons',
-                              const SizedBox(
-                                height: 1,
-                                width: 1,
-                              ),
-                              false,
-                            ),
-                            MainCardWidget(
-                              context,
-                              const Color(0xffFFF0D3),
-                              'assets/images/working_parent.png',
-                              'WORKING PARENT',
-                              'Understanding of human behaviour',
-                              '12 lessons',
-                              const SizedBox(
-                                height: 1,
-                                width: 1,
-                              ),
-                              false,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      HeadingRow('Events and experiences'),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        physics: const BouncingScrollPhysics(),
-                        child: Row(
-                          children: [
-                            MainCardWidget(
-                              context,
-                              const Color(0xffDDE3C2),
-                              'assets/images/babycare.png',
-                              'BABYCARE',
-                              'Understanding of human behaviour',
-                              '13 Feb, Sunday',
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8),
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 8, horizontal: 15),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(
-                                        color: const Color(0xff598BED),
-                                        width: 2),
-                                  ),
-                                  child: const Text(
-                                    'Book',
-                                    style: TextStyle(
-                                      color: Color(0xff598BED),
-                                      fontSize: 18,
-                                      fontFamily: 'Inter',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              true,
-                            ),
-                            MainCardWidget(
-                              context,
-                              const Color(0xffDDE3C2),
-                              'assets/images/babycare.png',
-                              'BABYCARE',
-                              'Understanding of human behaviour',
-                              '13 Feb, Sunday',
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8),
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 8, horizontal: 15),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(
-                                        color: const Color(0xff598BED),
-                                        width: 2),
-                                  ),
-                                  child: const Text(
-                                    'Book',
-                                    style: TextStyle(
-                                      color: Color(0xff598BED),
-                                      fontSize: 18,
-                                      fontFamily: 'Inter',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              true,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      HeadingRow('Lessons for you'),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        physics: const BouncingScrollPhysics(),
-                        child: Row(
-                          children: [
-                            MainCardWidget(
-                              context,
-                              const Color(0xffDDE3C2),
-                              'assets/images/babycare.png',
-                              'BABYCARE',
-                              'Understanding of human behaviour',
-                              '3 min',
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(right: 12, bottom: 8),
-                                child: SvgPicture.asset(
-                                  'assets/icons/svg/lock.svg',
-                                  height: otherIconSize,
-                                  width: otherIconSize,
-                                ),
-                              ),
-                              true,
-                            ),
-                            MainCardWidget(
-                              context,
-                              const Color(0xffDDE3C2),
-                              'assets/images/babycare.png',
-                              'BABYCARE',
-                              'Understanding of human behaviour',
-                              '1 min',
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(right: 12, bottom: 8),
-                                child: SvgPicture.asset(
-                                  'assets/icons/svg/lock.svg',
-                                  height: otherIconSize,
-                                  width: otherIconSize,
-                                ),
-                              ),
-                              true,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
+        bottomNavigationBar: customNavBar(context),
       ),
-      bottomNavigationBar: customNavBar(context),
     );
   }
 }

@@ -2,8 +2,17 @@
 
 import 'package:flutter/material.dart';
 
-Widget MainCardWidget(BuildContext context, Color color, String imageUrl,
-    String category, String title, String desc, Widget widget, bool isFit) {
+Widget MainCardWidget(
+  BuildContext context,
+  Color color,
+  String imageUrl,
+  String category,
+  String title,
+  String desc,
+  Widget widget,
+  bool isFit,
+  bool setWidth,
+) {
   return Padding(
     padding: const EdgeInsets.all(15),
     child: SizedBox(
@@ -11,7 +20,9 @@ Widget MainCardWidget(BuildContext context, Color color, String imageUrl,
         children: [
           Container(
             height: 170,
-            width: MediaQuery.of(context).size.width * 0.7,
+            width: (setWidth)
+                ? MediaQuery.of(context).size.width * 0.7
+                : MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(17),
@@ -19,10 +30,15 @@ Widget MainCardWidget(BuildContext context, Color color, String imageUrl,
               ),
               color: color,
             ),
-            child: Image.asset(imageUrl, fit: (isFit)? BoxFit.fill : BoxFit.none,),
+            child: Image.asset(
+              imageUrl,
+              fit: (isFit) ? BoxFit.fill : BoxFit.none,
+            ),
           ),
           Container(
-            width: MediaQuery.of(context).size.width * 0.69,
+            width: (setWidth)
+                ? MediaQuery.of(context).size.width * 0.69
+                : MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(17),
